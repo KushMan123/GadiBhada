@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import InfoSection from "./InfoSection";
 import Map from "./Map";
-
+import './index.css';
+import { lineString, length, along } from "@turf/turf";
 const REACT_APP_MAPBOX_TOKEN =
 	"pk.eyJ1Ijoia3VzaG1hbjEyMyIsImEiOiJja25vczluNzIxMXM5Mm5vNWNydzJkaDgyIn0.Cm70isgaVNNhYBmHRqScZg";
 
@@ -38,17 +39,21 @@ class App extends React.Component {
 			start: "",
 			end: "",
 			geometry: {},
+			routeLength: "",
+			actualRoute:[],
+			actualSteps: 0,
+			actualPoints: [],
 			has_geometry_changed: false,
 		};
 		this.child = React.createRef();
 	}
 
-	handleStartChange(event) {
-		this.setState({
-			start: event.target.value,
-		});
-		console.log(this.state.start);
-	}
+	// handleStartChange(event) {
+	// 	this.setState({
+	// 		start: event.target.value,
+	// 	});
+	// 	console.log(this.state.start);
+	// }
 
 	handleEndChange(event) {
 		if (event.target.id === "start") {
@@ -72,7 +77,20 @@ class App extends React.Component {
 			.then((data) => data.json())
 			.then((data) => {
 				console.log(data);
+				var line = lineString(data.routes[0].geometry.coordinates)
+				var lineDistance = length(line,{ units: 'kilometers'} );
+				var arc = [];
+				var steps = 10000;
+
+				for ( var i = 0; i < lineDistance; i += lineDistance/steps) {
+					var segment = along(line, i);
+					arc.push(segment.geometry.coordinates)
+				  }
+
 				this.setState({
+					actualSteps: steps,
+					actualRoute: arc,
+					routeLength: lineDistance.toString(),
 					geometry: data.routes[0].geometry,
 					has_geometry_changed: true,
 				});
@@ -88,6 +106,8 @@ class App extends React.Component {
 		if (this.state.has_geometry_changed) {
 			console.log("Changed and Updated");
 			this.onUpdate();
+			console.log(this.state.routeLength);
+			console.log(this.state.actualSteps);
 			this.setState({ has_geometry_changed: false });
 		}
 	}
@@ -99,6 +119,9 @@ class App extends React.Component {
 					ref={this.child}
 					token={REACT_APP_MAPBOX_TOKEN}
 					geometry={this.state.geometry}
+					routeLength={this.state.routeLength}
+					actualRoute={this.state.actualRoute}
+					actualSteps={this.state.actualSteps}
 				/>
 				<InfoSection
 					handler={this.handleEndChange.bind(this)}

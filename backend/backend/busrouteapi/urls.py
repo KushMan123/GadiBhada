@@ -6,5 +6,5 @@ urlpatterns=[
     path('getAllStop',getAllStops),
     path('connectBaB',connectBaB),
     path('getroute',getRoute),
-    path('suggrout',getsuggestedroute)
+    path('suggroute',getsuggestedroute)
 ]

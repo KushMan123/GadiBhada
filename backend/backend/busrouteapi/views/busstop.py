@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from busrouteapi.models import Busstop
+from ..models import Busstop
 from django.views.decorators.csrf import csrf_exempt
 import json
 

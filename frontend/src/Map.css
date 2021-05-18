@@ -1,0 +1,9 @@
+.map-btn {
+	cursor: pointer;
+	background: none;
+	border: none;
+}
+
+.map-btn .fa-bus {
+	color: red;
+}

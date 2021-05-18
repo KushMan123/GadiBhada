@@ -1,8 +1,38 @@
 from django.http import JsonResponse
-from busrouteapi.models import Busstop
+from ..models import Busstop
 from django.views.decorators.csrf import csrf_exempt
 import json
 from neomodel import db
+
+route={
+    'SRS_ROUTE': ['Swayambhu','Thulo Bharyang','Sano Bharyang','Dhungedhara','Banasthali','Balaju Chowk','Nayabazar','Sorakhutte','Thamel','ASCOL','Lainchaur','Jamal','RNAC','Jamal_Maya'],
+
+    'KG_ROUTE': ['Kalanki','Sitapaila','Swayambhu','Thulo Bharyang','Sano Bharyang','Dhungedhara','Banasthali','Balaju Chowk','Machha Pokari','New BusPark','Gongabu Chowk','Samakhusi','Basundhara Chauki','Basundhara','Narayan Gopal Chowk','Chappal Karkhana','Dhumbarahi','Sukedhara','Gopi Krisha Hall','Chabhahil Chowk','Chuchepati','Tusal','Boudha Gate','Boudha Pipalbot','Arab Bank','Chamunda Gate','Jorpati','Besigaun','NMC Hospital','Bhagwatithan, Gokharna'],
+
+    'BK_ROUTE': ['Balaju Chowk','Machha Pokari','New BusPark','Gongabu Chowk','Samakhusi','Basundhara Chauki','Basundhara','Narayan Gopal Chowk','Chappal Karkhana','Dhumbarahi','Sukedhara','Gopi Krisha Hall','Chabhahil Chowk','Mitrapark','Jaya Bageswori','Gausala Chowk','Pingalstan','Tilganga','Tribhuwan International Airport','Sinamangal','Gairigaun','Koteshwor','Jadibuti','Lokanthali','Kausaltar','Gathaghar','Chardobato,Thimi','Naya Thimi Bus stand','Radhe Radhe','Srijana Nagar','Sallaghari','Chundevi','Suryabinayak','Jagati','Chyamasingh','Kamalbinayak'],
+
+    'RINGROAD':['Kalanki','Sitapaila','Swayambhu','Thulo Bharyang','Sano Bharyang','Dhungedhara','Banasthali','Balaju Chowk','Machha Pokari','New BusPark','Gongabu Chowk','Samakhusi','Basundhara Chauki','Basundhara','Narayan Gopal Chowk','Chappal Karkhana','Dhumbarahi','Sukedhara','Gopi Krisha Hall','Chabhahil Chowk','Mitrapark','Jaya Bageswori','Gausala Chowk','Pingalstan','Tilganga','Tribhuwan International Airport','Sinamangal','Gairigaun','Koteshwor','Bhatbhateni, Koteshwor','Balkumari','Gwarko','Satdobato','Chapagaun Dobato Satobato','Mahalaximisthan, Patan','Thasikhel','Ekantakuna','Nakhu','Bagdol','Dhobighat','Nayabato','Sanepa Height, ringroad','Sanepa, Ringroad','Balkhu, Ringroad','Sita Petrol Pump, Kalanki','Khasibazar, Kalanki','Kalanki']
+}
+
+def sortroute(respone,name):
+    temp=[]
+    if name=="GK_ROUTE":
+        routes=route['KG_ROUTE']
+        routes.reverse()
+    elif name=="KB_ROUTE":
+        routes=route['BK_ROUTE']
+        routes.reverse()
+    elif name=="RINGROAD_REVERSE":
+        routes=route['RINGROAD']
+        routes.reverse()
+    else:
+        routes=route[name]
+    for i in routes:
+        for j in respone:
+            if(j['name']==i):
+                temp.append(j)
+    return temp
+
 
 @csrf_exempt
 def getRoute(request):
@@ -29,6 +59,7 @@ def getRoute(request):
                             'longitude': bus.get('longitude'),
                         }
                         response.append(obj)
+            response=sortroute(response,name)
             return JsonResponse(response,safe=False)
         except:
             response={"error":"Error occured"}
@@ -58,6 +89,7 @@ def getsuggestedroute(request):
                             'longitude': b.get('longitude'),
                         }
                         response.append(obj)
+            sortroute(response)
             return JsonResponse(response, safe=False)
         except:
             response={"error":"error"}

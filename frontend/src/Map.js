@@ -1,5 +1,6 @@
 import React from "react";
-import ReactMapGL from "react-map-gl";
+import ReactMapGL, { Marker } from "react-map-gl";
+import "./Map.css";
 
 const color = [
 	"#03AA46",
@@ -32,7 +33,10 @@ class Map extends React.Component {
 					data: {
 						type: "Feature",
 						properties: {},
-						geometry: this.props.geometry,
+						geometry: {
+							type: "LineString",
+							coordinates: this.props.geometry,
+						},
 					},
 				},
 				layout: {
@@ -65,7 +69,20 @@ class Map extends React.Component {
 						longitude: viewport.longitude,
 						zoom: viewport.zoom,
 					});
-				}}></ReactMapGL>
+				}}>
+				{this.props.busstop.map((park) => {
+					return (
+						<Marker
+							key={park.bid}
+							latitude={park.latitude}
+							longitude={park.longitude}>
+							<button className='map-btn'>
+								<i className='fas fa-bus'></i>
+							</button>
+						</Marker>
+					);
+				})}
+			</ReactMapGL>
 		);
 	}
 }

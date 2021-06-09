@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
-from django.contrib.auth.models import User, auth
-from authenticate.models import Person
+from authenticate.models import User
+#from django.contrib.auth.models import User, auth
+#from authenticate.models import Profile
 
 
 # Create your views here.
@@ -14,6 +15,7 @@ def index(request):
 
         user= User.objects.create_user(name=name, password= password1, email= email, username=username)
         user.save()
+        print(name)
         print('info saved')
         return redirect('/login')
 

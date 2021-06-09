@@ -78,13 +78,14 @@ WSGI_APPLICATION = 'gadibhada.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'authentication',
+        'NAME': 'gadibhada',
         'USER': 'postgres',
         'PASSWORD': '0000',
         'HOST' : 'localhost'
     }
 }
 
+AUTH_USER_MODEL = 'authenticate.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

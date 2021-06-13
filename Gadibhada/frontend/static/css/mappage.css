@@ -1,0 +1,117 @@
+.icon_btn {
+	padding: 10px;
+	background-color: #3ea86e;
+	color: white;
+	border: 1px solid #3ea86e;
+	border-radius: 5px;
+	transition: 0.2s ease-in-out;
+	margin: 5px;
+}
+
+.iconbtn_group {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+}
+
+.icon_btn:hover {
+	transform: scale(1.05);
+}
+
+.fa-bus-alt,
+.fa-route {
+	font-size: 20px;
+	color: white;
+}
+
+.map-btn {
+	cursor: pointer;
+	background: none;
+	border: none;
+}
+
+.map-btn .fa-bus {
+	color: red;
+}
+
+.dropdown-container {
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+}
+
+.dropdown {
+	width: 20rem;
+	position: relative;
+}
+
+.dropdown-select {
+	padding: 1rem;
+	border-radius: 4px;
+	background-color: white;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.dropdown:hover .dropdown-list {
+	opacity: 1;
+	visibility: visible;
+}
+
+.dropdown-list {
+	border-radius: 5px;
+	background-color: white;
+	position: absolute;
+	height: 200px;
+	overflow: auto;
+	bottom: 115%;
+	right: 0;
+	left: 0;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.2s linear, visibility 0.2s linear;
+}
+
+.dropdown-list-item {
+	padding: 1rem;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+.dropdown-list-item:hover {
+	background-color: #3ea86e;
+	color: white;
+}
+
+.source {
+	color: #037bfc;
+}
+
+.destination {
+	color: #e64239;
+}
+
+.geocoder-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 10rem;
+}
+
+.mapboxgl-ctrl-top-left {
+	display: flex;
+}
+
+#source--input:focus {
+	border: 1px solid #037bfc;
+	border-radius: 5px;
+}
+
+#destination--input:focus {
+	border: 1px solid #e64239;
+	border-radius: 5px;
+}

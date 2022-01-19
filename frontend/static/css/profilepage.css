@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat");
+* {
+	box-sizing: border-box;
+}
+.profilebody {
+	background: url(../images/form_back.jpg);
+	font-family: "Montserrat", sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	min-height: 100vh;
+	margin: auto;
+	background-size: cover;
+}
+
+h3 {
+	margin: 10px 0;
+}
+h6 {
+	margin: 5px 0;
+	text-transform: uppercase;
+}
+p {
+	font-size: 14px;
+	line-height: 21px;
+}
+.email {
+	color: #b3b8cd;
+}
+.card-container {
+	background-color: #1f8f3d;
+	border-radius: 5px;
+	box-shadow: 2px 5px 5px 5px rgba(0, 0, 0, 0.25);
+	color: #ffffff;
+	padding-top: 30px;
+	position: relative;
+	width: 350px;
+	max-width: 100%;
+	text-align: center;
+}
+.card-container .busowner {
+	color: #231e39;
+	background-color: #febb0b;
+	border-radius: 3px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 3px 7px;
+	position: absolute;
+	top: 30px;
+	left: 30px;
+}
+
+.popup {
+	color: #ffffff;
+	margin-left: 10px;
+}
+
+.card-container .round img {
+	border: 1px solid #03bfcb;
+	border-radius: 50%;
+	background-size: cover;
+	object-fit: cover;
+	padding: 7px;
+	width: 200px;
+	height: 200px;
+}
+/* .card-container .round img {
+  object-fit: contain;
+} */
+.busdet {
+	background-color: #1f1a36;
+	text-align: left;
+	padding: 15px;
+	margin-top: 30px;
+	max-height: 12rem;
+	overflow: auto;
+	border-radius: 0px 5px 5px 0px;
+	scrollbar-color: #6969dd #e0e0e0;
+	scrollbar-width: thin;
+}
+.busdet::-webkit-scrollbar {
+	width: 16px;
+}
+
+.busdet::-webkit-scrollbar-track {
+	background-color: #e4e4e4;
+	border-radius: 100px;
+}
+
+.busdet::-webkit-scrollbar-thumb {
+	background-color: #1f8f3d;
+	border-radius: 100px;
+	border: 2px solid transparent;
+	background-clip: content-box;
+}
+.busdet ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+}
+.busdet ul li {
+	border: 1px solid #2d2747;
+	border-radius: 2px;
+	display: inline-block;
+	font-size: 12px;
+	margin: 0 7px 7px 0;
+	padding: 7px;
+}
+.fa-edit {
+	color: #ffffff;
+	font-size: 14px;
+}
+
+.name-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.Route {
+	margin-bottom: 12px;
+}

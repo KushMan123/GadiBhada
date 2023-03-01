@@ -1,70 +1,42 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# GadiBhada
 
-## Available Scripts
+‘GadiBhada’ is a digitised version of the local bus tracking and fare calculation system in Kathmandu Valley. It allows one to find an appropriate route to travel and calculate the approximate fare for local buses from any location in the valley.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Objectives
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The basic objectives of developing this piece of software is summarized in following bullet points.
 
-### `npm test`
+- To save passenger the hassle to identify his/her bus stop while travelling
+- To help passenger find nearest bus stop in his/her route of commute from any location
+- To find the shortest bus route of one’s commute
+- To discourage the bus conductors from taking the fare more than what is set by the government
+- To properly implement the Government-issued fare list in the public buses
+- To save time and hassle for both, the passengers and the bus representative calculate money in the bus itself
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tools Used
 
-### `npm run build`
+Coding Languages: Python, JavaScript
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Framework: React.js, Django
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Database: PostgreSQL, Neo4j
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+API: Mapbox
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Very good aesthetics and intuitive user interface.
+- Users can find available routes directly or find appropriate route based on source location and destination location.
+- Bus owners can add/ update/ delete new/ old bus stops and bus routes
+- Users can see and update their profile from the user profile interference itself.
+- Directive instruction is given to the users so that they know which bus stop to reach, which bus route to take, and where to go after reaching the near bus stop to the destination.
+- Approximate bus fare is calculated based on the length of commute bus route.
 
-## Learn More
+## Screenshots
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
